@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="PaginaMaestra::head">
+		<title>Registrar Cliente</title>
+	</head>
+	<body>
+			<header th:replace="PaginaMaestra::header">
+			
+		</header>
+		<nav th:replace="PaginaMaestra::menu">
+			
+		</nav>
+		<h1  align="center">
+			Registrar Cliente
+		</h1>
+		
+		<form  th:action="@{/vistas/GuardarCliente}" method="post" th:object="${regiscliente}">
+			
+			<table align="center">
+				
+				<input type="hidden" th:field="*{idcliente}">
+					<tr>
+						<td>Nombre</td>
+						<td><input type="text" th:field="*{nombre}"></td>
+					</tr>
+					<tr>
+						<td>Apellido</td>
+					<td><input type="text" th:field="*{apellido}"></td>	
+					</tr>
+					<tr>
+						<td>Sexo</td>
+						<td><input type="text" th:field="*{sexo}"></td>
+					</tr>
+					<tr>
+						<td>Dni</td>
+						<td><input type="text" th:field="*{dni}"></td>
+					</tr>
+					<tr>
+						<td>Email</td>
+			<td><input type="text" th:field="*{email}"></td>
+					</tr>
+					<tr>
+						<td>Telefono</td>
+			<td><input type="text" th:field="*{telf}"></td>
+					</tr>
+					<tr>
+						
+						<td>Nacionalidad</td>
+		<td><input type="text" th:field="*{nacionalidad}"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+				<input type="submit" value="registrar" class="btn btn-primary">
+							</td>
+							</tr>
+			</table>
+		</form>
+	</body>
+	
+</html>

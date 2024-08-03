@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="PaginaMaestra::head">
+		<title>Listado de Clientes</title>
+	</head>
+	<body>
+			
+	<header th:replace="PaginaMaestra::header">
+			
+		</header>
+		<nav th:replace="PaginaMaestra::menu">
+			
+		</nav>
+		
+		<h1 align="center">Listado de Clientes</h1>
+		
+		<h2 align="center">
+			<a th:href="@{RegistrarCliente}" th:text="'nuevo registro'"
+			 title="crear nuevo registro" class="btn btn-success"></a>
+		</h2>
+		<table align="center" border="2">
+			<tr>
+				<th>Codigo</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Dni</th>
+				<th>Email</th>
+				<th>Telefono</th>
+				<th>Sexo</th>
+				<th>Nacionalidad</th>
+				<th colspan="2">Acciones</th>
+			</tr>
+			<th:block th:each="p:${listado}">
+				<tr>
+					<td th:text="${p.idcliente}"></td>
+					<td th:text="${p.nombre}"></td>
+					<td th:text="${p.apellido}"></td>
+					<td th:text="${p.dni}"></td>
+					<td th:text="${p.email}"></td>
+					<td th:text="${p.telf}"></td>
+					<td th:text="${p.sexo}"></td>
+				    <td th:text="${p.nacionalidad}"></td>
+			        <td><a th:href="@{editar/}+${p.idcliente}" th:text="Editar" 
+					title="Editar Registro" class="btn btn-primary"></a></td>
+					<td>
+						<a th:href="@{eliminar/}+${p.idcliente}" th:text="Eliminar"
+						class="btn btn-warning"></a>
+						
+					</td>
+				</tr>
+				
+			</th:block>
+			
+		</table>
+		
+				<footer th:replace="PaginaMaestra::footer"></footer>
+
+	</body>
+	
+</html>
